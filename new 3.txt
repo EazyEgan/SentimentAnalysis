@@ -1,0 +1,42 @@
+Underfitting is when there is an insufficient amount of training data/unsuitable hyeprparameters used such that the model 
+poorly generalises the test data i.e. it doesn't give a good model because it doesn't have enough data/a relevant way 
+to approximate the data well; it can neither model the training data nor generalise to new data.
+Example: Using a linear model ona  non-linear problem/dataset.
+
+
+Overfitting is the opposite where there is too muc training data used such that the model becomes too tailored to the data 
+and doesn't generalise or predict well as it takes too much into account and so we just get a model that looks like the data
+ rather than giving a good generalisation/prediction. i.e. It refers to a model that models the training data too 
+ well and doesn't generalise well to test data because of this.
+Example: Using kNN with k = 1 i.e. 1 point considered - meaning all points (including noise) are modeled.
+
+k values = [2,3,4,5,6,7,8,9,10]
+accuracylist = []
+
+for each K in list of k values:
+	split training data into K parts
+	model.train(use K-1 of these parts to train model)
+	model.predict(use the remaining part to predict on)
+	accuracylist.append(model accuracy)
+	
+plot (accuracylist.mean(),accuracyList.standarderror()) to show accuracy and std dev for all K runs
+
+	
+Logistic Regression Classifier:
+Easy and simple implementation.
+Fast training.
+Applicable only if the solution is linear. In many real life scenarios, it may not be the case.
+
+kNN Classifier:
+slow - not good for real time
+
+KNN is a non-parametric model, where LR is a parametric model. KNN is comparatively slower than Logistic Regression.
+ KNN supports non-linear solutions where LR supports only linear solutions. LR can derive confidence level
+ (about its prediction), whereas KNN can only output the labels
+ 
+ Compared to kNN classification, Logictic Regression classification is relatively simple to implement and performs faster
+ as unlike kNN Classification all points do not need to be tracked meaning logisitc regression classification is better for 
+ real-time examples, nor do hyper paramters need to be chosen so wisely.
+Logistic regression may not be used (to any signifigance) on non-linear problems or problems with low noise-to-signal ratios.
+kNN classification can do just that - classify but not give any additional confidence of classification - logisitc regression 
+on the other hand can derive a confidence level for its classifications.
